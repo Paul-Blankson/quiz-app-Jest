@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-purple: #A729F5;
+  --color-dark-navy: #313E51;
+  --color-navy-: #3B4D66;
+  --color-grey-navy: #626c7f;
+  --color-light-bluish: #ABC1E1;
+  --color-light-grey: #F4F6FA;
+  --color-pure-white: #FFFFFF;
+  --color-green: #26D782;
+  --color-thistle: #a445ed;
+  --color-red: #EE5454;
+}
+
+@font-face {
+  font-family: rubik;
+  src: url("../public/Rubik/Rubik-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
