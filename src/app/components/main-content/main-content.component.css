@@ -33,3 +33,8 @@
   line-height: 1.3125rem;
   color: var(--color-dark-navy);
 }
+
+.subjects__container {
+  width: 100%;
+  height: 292px;
+}
