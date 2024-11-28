@@ -59,7 +59,7 @@ input:checked + .header__theme-button {
 }
 
 input:checked + .header__theme-button::before {
-  transform: translateX(50px);
+  transform: translateX(13px);
 }
 
 .header__theme-checkbox {
