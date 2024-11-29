@@ -1,10 +1,11 @@
 <div class="small__card">
-  <div class="small__card-icon-container">
+  <div class="small__card-icon-container" [style.background-color]="getCardIconBackgroundColor()">
     <img
-      src="/images/icon-html.svg"
+      [src]="cardIcon"
       alt="subject icon"
       class="small__card--icon"
     />
   </div>
-  <h2 class="small__card-title">Subject 1</h2>
+  <h2 class="small__card-title">{{ cardTitle }}</h2>
 </div>
+
