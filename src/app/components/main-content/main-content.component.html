@@ -9,9 +9,8 @@
     </span>
   </div>
   <div class="subjects__container">
-    <app-small-card></app-small-card>
-    <app-small-card></app-small-card>
-    <app-small-card></app-small-card>
-    <app-small-card></app-small-card>
+    @for (card of card; track card.title) {
+      <app-small-card [cardTitle]="card.title" [cardIcon]="card.icon"></app-small-card>
+    }
   </div>
 </section>
