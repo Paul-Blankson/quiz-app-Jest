@@ -7,12 +7,13 @@
   background-color: var(--color-pure-white);
   margin-bottom: 0.75rem;
   padding: 0.75rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
 }
 
 .small__card-icon-container {
   width: 40px;
   height: 40px;
-  /* background-color: #FFF1E9; */
   display: flex;
   justify-content: center;
   align-items: center;
