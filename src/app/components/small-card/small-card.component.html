@@ -1,11 +1,12 @@
-<div class="small__card">
-  <div class="small__card-icon-container" [style.background-color]="getCardIconBackgroundColor()">
+@for (card of card; track card.title) {
+<div class="small__card" (click)="onCardClick(card)">
+  <div class="small__card-icon-container" [style.background-color]="getIconBackgroundColor(card.title)">
     <img
-      [src]="cardIcon"
+      [src]="card.icon"
       alt="subject icon"
       class="small__card--icon"
     />
   </div>
-  <h2 class="small__card-title">{{ cardTitle }}</h2>
+  <h2 class="small__card-title">{{ card.title }}</h2>
 </div>
-
+}
