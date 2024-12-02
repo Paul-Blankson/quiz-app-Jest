@@ -1,0 +1,108 @@
+.results-section {
+  width: 100%;
+  font-family: Rubik;
+}
+
+.results-section__text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.result-section__completion-text {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+  color: var(--color-dark-navy);
+}
+
+.result-section__scored-text {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  color: var(--color-dark-navy);
+}
+
+.results-section__score-container {
+  width: 327px;
+  height: 310px;
+}
+
+.results-section__score-card {
+  width: 100%;
+  height: 242px;
+  padding: 2rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-pure-white);
+}
+
+.results-section__subject-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.results-section__subject-title {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: 500;
+  color: var(--color-dark-navy);
+}
+
+.results-section__subject-icon-container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.results-section__subject-icon {
+  width: 21.42px;
+  height: 25px;
+}
+
+.result-section__score-container {
+  width: 263px;
+  height: 122px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.results-section__score {
+  font-size: 5.5rem;
+  line-height: 5.5rem;
+  font-weight: 500;
+  color: var(--color-dark-navy);
+}
+
+.results-section__score-out-of-total {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  color: var(--color-dark-navy);
+}
+
+.results-section__play-again-btn {
+  width: 100%;
+  padding: 1.1875rem 7.375rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: var(--color-purple);
+  color: var(--color-pure-white);
+  box-shadow: 1px 1px #8FA0C124;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: 500;
+}
