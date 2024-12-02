@@ -27,4 +27,6 @@ export class QuizServiceService {
   getQuizData(): Observable<any> {
     return this.http.get(this.quizUrl);
   }
+
+  selectedSubjectTitle = ''
 }
