@@ -1,0 +1,136 @@
+.questions-section {
+  width: 100%;
+  height: 169px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: Rubik;
+}
+
+.questions-section__question-container {
+  width: 100%;
+  height: 129px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.questions-section__question-count {
+  font-weight: 400;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.3125rem;
+  color: var(--color-grey-navy);
+}
+
+.questions-section__question-text {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-align: left;
+  color: var(--color-dark-navy);
+}
+
+.questions-section__progress-bar-container {
+  width: 100%;
+  height: 16px;
+  background-color: var(--color-pure-white);
+  border-radius: 999px;
+  padding: 0.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.questions-section__progress-bar {
+  width: 46.48%;
+  height: 8px;
+  border-radius: 6.5rem;
+  background-color: var(--color-purple);
+  transition: width 0.2s;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .questions-section {
+    height: 242px;
+    margin-bottom: 4rem;
+    gap: 2.5rem;
+  }
+
+  .questions-section__question-container {
+    height: 186px;
+    gap: 1.6875rem;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .questions-section__progress-bar {
+    width: 39%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .questions-section {
+    width: 456px;
+    height: 456px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .questions-section__question-container {
+    height: 272px;
+    gap: 1.6875rem;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .questions-section__progress-bar {
+    width: 39%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .questions-section {
+    width: 456px;
+    height: 456px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .questions-section__question-container {
+    height: 272px;
+    gap: 1.6875rem;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .questions-section__progress-bar {
+    width: 39%;
+  }
+}
