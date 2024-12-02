@@ -3,11 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem           ;
+  padding: 1.5rem;
 }
 
 .header__logo-container {
-  display: flex;
   align-items: center;
   gap: 1rem;
 }
@@ -20,7 +19,7 @@
 
 .header__logo-image-container {
   padding: 0.4688rem;
-  background-color: #FFF1E9;
+  /* background-color: #FFF1E9; */
 }
 
 .header__logo-image {
@@ -31,7 +30,7 @@
 .header__theme-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 0.5rem;
 }
 
