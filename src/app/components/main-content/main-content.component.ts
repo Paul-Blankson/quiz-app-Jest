@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { SmallCardComponent } from '../small-card/small-card.component';
+import { QuestionsSectionComponent } from '../questions-section/questions-section.component';
+import { ResultsSectionComponent } from '../results-section/results-section.component';
 import { QuizServiceService } from '../../service/quiz-service.service';
 import { QuizData } from '../../types';
 
 @Component({
   selector: 'app-main-content',
-  imports: [SmallCardComponent],
+  imports: [SmallCardComponent, QuestionsSectionComponent, ResultsSectionComponent],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css',
 })
