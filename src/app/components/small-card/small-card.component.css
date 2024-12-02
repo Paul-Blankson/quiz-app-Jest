@@ -1,5 +1,5 @@
 .small__card {
-  width: 100%;
+  width: 327px;
   height: 64px;
   display: flex;
   align-items: center;
@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
 }
 
 .small__card--icon {
@@ -27,6 +28,86 @@
 .small__card-title {
   font-family: Rubik;
   font-size: 1.125rem;
-  font-weight: 700;
+  line-height: 1.125rem;
+  font-weight: 500;
   color: var(--color-dark-navy);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+   .small__card {
+    width: 640px;
+    height: 80px;
+    gap: 32px;
+    margin-bottom: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .small__card-icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 0.75rem;
+  }
+
+  .small__card--icon {
+    width: 32.5px;
+    height: 25px;
+  }
+
+  .small__card-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+   .small__card {
+    width: 564px;
+    height: 96px;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .small__card-icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 0.5rem;
+  }
+
+  .small__card--icon {
+    width: 32.5px;
+    height: 25px;
+  }
+
+  .small__card-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .small__card {
+   width: 564px;
+   height: 96px;
+   gap: 2rem;
+   margin-bottom: 1.5rem;
+   border-radius: 1.5rem;
+ }
+
+ .small__card-icon-container {
+   width: 56px;
+   height: 56px;
+   border-radius: 0.5rem;
+ }
+
+ .small__card--icon {
+   width: 32.5px;
+   height: 25px;
+ }
+
+ .small__card-title {
+   font-size: 1.75rem;
+   line-height: 1.75rem;
+ }
 }
