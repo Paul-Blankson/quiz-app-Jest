@@ -8,10 +8,7 @@ import { QuizServiceService } from '../../service/quiz-service.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
-  @Input() headerIconBackground: string = '';
-  @Input() headerTitle: string = '';
-  @Input() isFirstPage: boolean = true;
+  isFirstPage: boolean = true;
 
   quizService = inject(QuizServiceService);
 
