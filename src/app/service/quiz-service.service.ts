@@ -15,5 +15,12 @@ export class QuizServiceService {
     return this.http.get(this.quizUrl);
   }
 
-  selectedSubjectTitle = ''
+  selectedSubjectTitle = '';
+
+  setSelectedSubjectTitle(title: string): void {
+    this.selectedSubjectTitle = title;
+  }
+  getSelectedSubjectTitle(): string {
+    return this.selectedSubjectTitle;
+  }
 }
