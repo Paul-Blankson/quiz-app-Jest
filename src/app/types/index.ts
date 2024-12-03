@@ -1,10 +1,10 @@
 export interface QuizData {
   title: string;
   icon: string;
-  questions: Question[];
+  questions: [];
 }
 
-interface Question {
+export interface Question {
   question: string;
   options: string[];
   answer: string;
