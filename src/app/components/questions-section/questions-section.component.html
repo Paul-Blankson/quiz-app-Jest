@@ -1,12 +1,28 @@
-<section class="questions-section">
-  <div class="questions-section__question-container">
-    <span class="questions-section__question-count">Question 6 of 10</span>
-    <h2 class="questions-section__question-text">
-      Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA
-      requirement for normal text?
-    </h2>
-  </div>
-  <div class="questions-section__progress-bar-container">
-    <div class="questions-section__progress-bar"></div>
-  </div>
-</section>
+ <section class="questions-section">
+    <div class="questions-section__question-container">
+
+      <div class="questions-section__question-text-container">
+        <span class="questions-section__question-count">Question {{ currentIndex + 1 }} of {{ questions.length }}</span>
+        <h2 class="questions-section__question-text">
+          {{ questions[currentIndex].question }}
+        </h2>
+      </div>
+
+      <div class="questions-section__progress-bar-container">
+        <div class="questions-section__progress-bar"></div>
+      </div>
+
+    </div>
+
+    <div class="question-section__answer-container">
+      <div class="answer__card-container">
+      @for(option of currentQuestion; track $index){
+        <app-small-card [cardTitle]="option">
+          <p>{{ answerLabel[$index] }}</p>
+        </app-small-card>
+      }
+      </div>
+      <button class="question-section__answer-container-submit-btn" (click)="nextQuestion()">Submit Answer</button>
+    </div>
+
+  </section>
