@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QuizServiceService } from '../../service/quiz-service.service';
 
 @Component({
@@ -7,13 +7,19 @@ import { QuizServiceService } from '../../service/quiz-service.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isFirstPage: boolean = true;
 
-  quizService = inject(QuizServiceService);
+  constructor(public quizService: QuizServiceService) {}
+
+  ngOnInit(): void {
+    this.quizService.getIsFirstPage().subscribe((isFirstPage) => {
+      this.isFirstPage = isFirstPage;
+    });
+  }
 
   getHeaderIcon(): string {
-    switch (this.quizService.selectedSubjectTitle) {
+    switch (this.quizService.getSelectedSubjectTitle()) {
       case 'HTML':
         return 'images/icon-html.svg';
       case 'CSS':
@@ -28,7 +34,7 @@ export class HeaderComponent {
   }
 
   getHeaderIconBackground(): string {
-    switch (this.quizService.selectedSubjectTitle) {
+    switch (this.quizService.getSelectedSubjectTitle()) {
       case 'HTML':
         return '#FFF1E9';
       case 'CSS':
