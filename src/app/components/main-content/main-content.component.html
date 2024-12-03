@@ -1,20 +1,34 @@
-<section class="main-content">
-  <!-- <div class="welcome__container">
+@if(!question){
+  <section class="main-content">
+    <div class="welcome__container">
 
-    <div class="welcome__heading--container">
-      <h5 class="welcome__heading-light">Welcome to the</h5>
-      <h2 class="welcome__heading-bold">Frontend Quiz!</h2>
+      <div class="welcome__heading--container">
+        <h5 class="welcome__heading-light">Welcome to the</h5>
+        <h2 class="welcome__heading-bold">Frontend Quiz!</h2>
+      </div>
+      <span class="welcome__action-text">
+        Pick a subject to get started.
+      </span>
     </div>
-    <span class="welcome__action-text">
-      Pick a subject to get started.
-    </span>
-  </div> -->
 
-  <!-- <app-questions-section></app-questions-section> -->
 
-  <!-- <div class="subjects__container">
-      <app-small-card (cardSelect)="card" [card]="card" ></app-small-card>
-  </div> -->
 
-  <app-results-section></app-results-section>
-</section>
+    <div class="subjects__container">
+      @for(card of cards; track $index){
+      <app-small-card [cardTitle]="card.title" (click)="onCardClick(card.title)">
+        <img
+          src="{{ card.icon }}"
+          alt="subject icon"
+          class="small__card--icon"
+        />
+      </app-small-card>
+      }
+    </div>
+
+    <!-- <app-results-section></app-results-section> -->
+  </section>
+}
+
+@if(question){
+  <app-questions-section></app-questions-section>
+}

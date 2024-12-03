@@ -12,7 +12,8 @@ import { QuizData } from '../../types';
   styleUrl: './main-content.component.css',
 })
 export class MainContentComponent {
-  card: QuizData[] = [];
+  cards: QuizData[] = [];
+  question = false;
 
   constructor(
     private quizService: QuizServiceService
@@ -21,11 +22,18 @@ export class MainContentComponent {
   ngOnInit(): void {
     this.quizService.getQuizData().subscribe({
       next: (data) => {
-        this.card = data.quizzes;
+        this.cards = data.quizzes;
+        console.log('Quiz Data:', this.cards);
       },
       error: (err) => {
         console.error('Error fetching quiz data:', err);
       },
     });
+  }
+
+  onCardClick(title: string): void {
+    console.log('Selected Quiz:', title);
+    this.quizService.setSelectedSubjectTitle(title);
+    this.question = true;
   }
 }
