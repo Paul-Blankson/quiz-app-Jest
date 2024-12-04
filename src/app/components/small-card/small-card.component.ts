@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { QuizServiceService } from '../../service/quiz-service.service';
 import { QuizData } from '../../types';
 @Component({
   selector: 'app-small-card',
@@ -7,8 +8,12 @@ import { QuizData } from '../../types';
   styleUrl: './small-card.component.css',
 })
 export class SmallCardComponent {
-  @Input() card: QuizData[] = [];
-  @Output() cardSelect = new EventEmitter<QuizData>();
+  @Input() cardIcon: string = '';
+  @Input() cardTitle: string = '';
+
+  @Output() clicked = new EventEmitter();
+
+  quizService = inject(QuizServiceService);
 
   getIconBackgroundColor(title: string): string {
     switch (title) {
@@ -25,7 +30,5 @@ export class SmallCardComponent {
     }
   }
 
-  onCardClick(card: QuizData) {
-    this.cardSelect.emit(card);
-  }
+ 
 }
