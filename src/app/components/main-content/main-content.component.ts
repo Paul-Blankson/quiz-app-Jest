@@ -22,7 +22,7 @@ export class MainContentComponent {
     this.quizService.getQuizData().subscribe({
       next: (data) => {
         this.cards = data.quizzes;
-        console.log('Quiz Data:', this.cards);
+        // console.log('Quiz Data:', this.cards);
       },
       error: (err) => {
         console.error('Error fetching quiz data:', err);
@@ -31,8 +31,8 @@ export class MainContentComponent {
   }
 
   onCardClick(title: string): void {
-    console.log('Selected Quiz:', title);
     this.quizService.setSelectedSubjectTitle(title);
+    this.quizService.setIsFirstPage(false);
     this.question = true;
   }
 }
