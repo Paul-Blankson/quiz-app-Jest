@@ -29,5 +29,5 @@
 body {
   font-family: Rubik;
   color: var(--color-dark-navy);
-  background-color: var(--color-light-grey);
+  background: var(--color-light-grey) url('/images/light-theme-bg.svg') center/cover no-repeat;
 }
