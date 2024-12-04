@@ -1,4 +1,8 @@
-@if(!question){
+@if(question){
+  <app-questions-section></app-questions-section>
+}
+
+@else if(!question){
   <section class="main-content">
     <div class="welcome__container">
 
@@ -25,10 +29,8 @@
       }
     </div>
 
-    <!-- <app-results-section></app-results-section> -->
   </section>
 }
 
-@if(question){
-  <app-questions-section></app-questions-section>
-}
+<!-- <app-results-section></app-results-section> -->
+
