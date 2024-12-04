@@ -9,6 +9,7 @@ import { QuizServiceService } from '../../service/quiz-service.service';
 })
 export class HeaderComponent implements OnInit {
   isFirstPage: boolean = true;
+  isDarkTheme: boolean = false;
 
   constructor(public quizService: QuizServiceService) {}
 
@@ -16,6 +17,29 @@ export class HeaderComponent implements OnInit {
     this.quizService.getIsFirstPage().subscribe((isFirstPage) => {
       this.isFirstPage = isFirstPage;
     });
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      this.isDarkTheme = savedTheme === 'dark';
+      this.applyTheme();
+    }
+  }
+
+  toggleTheme(): void {
+    this.isDarkTheme = !this.isDarkTheme;
+
+    this.applyTheme();
+
+    localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+  }
+
+  applyTheme(): void {
+    // Add or remove the `dark-theme` class from the root element
+    const root = document.documentElement;
+    if (this.isDarkTheme) {
+      root.classList.add('dark-theme');
+    } else {
+      root.classList.remove('dark-theme');
+    }
   }
 
   getHeaderIcon(): string {

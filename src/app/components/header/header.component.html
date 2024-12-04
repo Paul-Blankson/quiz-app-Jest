@@ -18,7 +18,13 @@
       alt="sun icon"
       class="header__theme-icon header__theme-icon--sun"
     />
-    <input type="checkbox" id="themeToggle" class="header__theme-checkbox" />
+    <input
+      type="checkbox"
+      id="themeToggle"
+      class="header__theme-checkbox"
+      [checked]="isDarkTheme"
+      (change)="toggleTheme()"
+    />
     <label
       class="header__theme-button"
       for="themeToggle"
