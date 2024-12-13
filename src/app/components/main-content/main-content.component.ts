@@ -12,7 +12,7 @@ import { QuizData } from '../../types';
 })
 export class MainContentComponent {
   cards: QuizData[] = [];
-  question = false;
+  isQuestionSection = false;
 
   constructor(
     private quizService: QuizServiceService
@@ -22,7 +22,6 @@ export class MainContentComponent {
     this.quizService.getQuizData().subscribe({
       next: (data) => {
         this.cards = data.quizzes;
-        // console.log('Quiz Data:', this.cards);
       },
       error: (err) => {
         console.error('Error fetching quiz data:', err);
@@ -33,6 +32,6 @@ export class MainContentComponent {
   onCardClick(title: string): void {
     this.quizService.setSelectedSubjectTitle(title);
     this.quizService.setIsFirstPage(false);
-    this.question = true;
+    this.isQuestionSection = true;
   }
 }

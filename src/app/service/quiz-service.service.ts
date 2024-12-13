@@ -8,9 +8,10 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class QuizServiceService {
   quizUrl = '/data/data.json';
 
-  constructor(private http: HttpClient) {}
+  private isFirstPageSubject = new BehaviorSubject<boolean>(true);
+  private selectedSubjectTitle: string = '';
 
-  private selectedSubjectTitle = '';
+  constructor(private http: HttpClient) {}
 
   setSelectedSubjectTitle(title: string): void {
     this.selectedSubjectTitle = title;
@@ -19,8 +20,6 @@ export class QuizServiceService {
   getSelectedSubjectTitle(): string {
     return this.selectedSubjectTitle;
   }
-
-  private isFirstPageSubject = new BehaviorSubject<boolean>(true);
 
   setIsFirstPage(isFirstPage: boolean): void {
     this.isFirstPageSubject.next(isFirstPage);

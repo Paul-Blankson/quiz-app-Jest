@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizServiceService } from '../../service/quiz-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,18 +11,25 @@ import { QuizServiceService } from '../../service/quiz-service.service';
 export class HeaderComponent implements OnInit {
   isFirstPage: boolean = true;
   isDarkTheme: boolean = false;
+  private subscriptions: Subscription = new Subscription();
 
   constructor(public quizService: QuizServiceService) {}
 
   ngOnInit(): void {
-    this.quizService.getIsFirstPage().subscribe((isFirstPage) => {
+    const isFirstPageSub = this.quizService.getIsFirstPage().subscribe((isFirstPage) => {
       this.isFirstPage = isFirstPage;
     });
+    this.subscriptions.add(isFirstPageSub);
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       this.isDarkTheme = savedTheme === 'dark';
       this.applyTheme();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   toggleTheme(): void {

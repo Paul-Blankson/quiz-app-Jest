@@ -2,7 +2,7 @@ import { Question ,QuizData} from './../../types/index';
 import { Component, inject } from '@angular/core';
 import { SmallCardComponent } from '../small-card/small-card.component';
 import { QuizServiceService } from '../../service/quiz-service.service';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-questions-section',
@@ -12,52 +12,48 @@ import { QuizServiceService } from '../../service/quiz-service.service';
 })
 export class QuestionsSectionComponent {
 
-
-  quizService = inject(QuizServiceService);
+  quizes: QuizData[] = [];
   questions: Question[] = [];
-  currentQuestion: string[] = [];
+  currentQueOptions: string[] = [];
   currentIndex: number = 0;
-  quizes:QuizData[] = []
+  quizService = inject(QuizServiceService);
+  answerLabel=['A', 'B', 'C', 'D']
+  selectedTitle: string = '';
+  private subscriptions: Subscription = new Subscription();
 
-  selectedTitle: string = ''
   ngOnInit(): void {
-    // Fetch quizzes data
     this.quizService.getQuizData().subscribe((data: { quizzes: QuizData[] }) => {
       this.quizes = data.quizzes;
-      console.log('Quiz Data:', this.quizes);
-
       this.selectedTitle = this.quizService.getSelectedSubjectTitle();
-      console.log('Selected Title:', this.selectedTitle);
-
       // Filter questions and set the current question
       this.filterQuestionsByTitle();
     });
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
   filterQuestionsByTitle(): void {
     const selectedQuiz = this.quizes.find((quiz) => quiz.title === this.selectedTitle);
-
     if (selectedQuiz) {
       this.questions = selectedQuiz.questions;
-      console.log('Filtered Questions:', this.questions);
-
       // Reset index and fetch the first question
       this.currentIndex = 0;
-      this.getCurrentQuestion();
+      this.getCurrentQueOptions();
     } else {
       console.warn('No quiz found for title:', this.selectedTitle);
-      this.questions = []; // Handle gracefully
-      this.currentQuestion = []; // Reset current question
+      this.questions = [];
+      this.currentQueOptions = [];
     }
   }
 
-  getCurrentQuestion(): void {
+  getCurrentQueOptions(): void {
     if (this.questions && this.currentIndex < this.questions.length) {
-      this.currentQuestion = this.questions[this.currentIndex].options;
-      console.log('Current Question Options:', this.currentQuestion);
+      this.currentQueOptions = this.questions[this.currentIndex].options;
     } else {
       console.warn('Invalid index or no questions available.');
-      this.currentQuestion = []; // Handle gracefully
+      this.currentQueOptions = [];
     }
   }
 
@@ -66,9 +62,7 @@ export class QuestionsSectionComponent {
       this.currentIndex++;
     }
     this.selectedTitle = this.quizService.getSelectedSubjectTitle();
-    this.getCurrentQuestion();
+    this.getCurrentQueOptions();
   }
 
-
-  answerLabel=['A', 'B', 'C', 'D']
 }

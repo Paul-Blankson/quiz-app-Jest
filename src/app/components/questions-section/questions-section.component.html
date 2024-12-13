@@ -16,7 +16,7 @@
 
     <div class="question-section__answer-container">
       <div class="answer__card-container">
-      @for(option of currentQuestion; track $index){
+      @for(option of currentQueOptions; track $index){
         <app-small-card [cardTitle]="option">
           <p>{{ answerLabel[$index] }}</p>
         </app-small-card>
