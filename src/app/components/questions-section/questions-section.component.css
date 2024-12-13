@@ -1,0 +1,212 @@
+.questions-section {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-inline: 1.5rem;
+}
+
+.questions-section__question-container {
+  width: 100%;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.questions-section__question-text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.questions-section__question-count {
+  font-weight: 400;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.3125rem;
+  color: var(--color-span-text);
+}
+
+.questions-section__question-text {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: var(--color-title);
+}
+
+.questions-section__progress-bar-container {
+  width: 100%;
+  height: 16px;
+  background-color: var(--color-background);
+  border-radius: 999px;
+  padding: 0.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.questions-section__progress-bar {
+  width: 46.48%;
+  height: 8px;
+  border-radius: 6.5rem;
+  background-color: var(--color-purple);
+  transition: width 0.3s;
+}
+
+.question-section__answer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.answer__card-container {
+  width: 100%;
+}
+
+.question-section__answer-container-submit-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 16px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  color: var(--color-pure-white);
+  background-color: var(--color-purple);
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 1px 1px #8FA0C124;
+  cursor: pointer;
+}
+
+.question-section__answer-container-submit-btn:hover {
+  opacity: 1;
+}
+
+.question-section__answer-container-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive styles */
+ @media (min-width: 768px) {
+  .questions-section {
+    gap: 64px;
+    padding-inline: 4rem;
+  }
+  .questions-section__question-container {
+    width: 640px;
+    height: 242px;
+    gap: 2.5rem;
+  }
+
+  .questions-section__question-text-container {
+    gap: 1.6875rem;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .question-section__answer-container {
+    width: 640px;
+  }
+
+  .question-section__answer-container-submit-btn {
+    padding: 18px;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .questions-section {
+    justify-content: space-between;
+    flex-direction: row;
+    padding-inline: 140px;
+  }
+
+  .questions-section__question-container {
+    height: 452px;
+    justify-content: space-between;
+  }
+
+  .questions-section__question-text-container {
+    gap: 27px;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .questions-section__progress-bar-container {
+    width: 456px;
+  }
+
+  .question-section__answer-container-submit-btn {
+    width: 564px;
+    padding: 32px;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    border-radius: 24px;
+  }
+
+}
+
+@media (min-width: 1440px) {
+  .questions-section {
+    justify-content: space-between;
+    flex-direction: row;
+    padding-inline: 140px;
+  }
+
+  .questions-section__question-container {
+    height: 452px;
+    justify-content: space-between;
+  }
+
+  .questions-section__question-text-container {
+    gap: 27px;
+  }
+
+  .questions-section__question-count {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  .questions-section__question-text {
+    font-size: 2.25rem;
+    line-height: 2.7rem;
+  }
+
+  .questions-section__progress-bar-container {
+    width: 456px;
+  }
+
+  .question-section__answer-container-submit-btn {
+    width: 564px;
+    padding: 32px;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    border-radius: 24px;
+  }
+
+}

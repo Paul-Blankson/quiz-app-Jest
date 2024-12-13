@@ -1,24 +1,46 @@
-
 .header {
-  max-width: 375px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: red; */
+  padding: 1.5rem;
+}
+
+.header__logo-container {
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__title {
+  font-family: Rubik, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.header__logo-image-container {
+  padding: 0.4688rem;
+  border-radius: 8px;
+  height: 56px;
+}
+
+.header__logo-image {
+  width: 21.4208px;
+  height: 25px;
 }
 
 .header__theme-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 .header__theme-button {
-  width: 40px;
+  width: 32px;
   height: 20px;
-  background-color: var(--color-deep-ash);
-  border-radius: 10px;
+  background-color: var(--color-purple);
+  padding: 0.25rem;
+  border-radius: 999px;
   cursor: pointer;
   position: relative;
   transition: 0.2s;
@@ -27,22 +49,98 @@
 .header__theme-button::before {
   position: absolute;
   content: "";
-  background-color: var(--color-almost-white);
+  background-color: var(--color-pure-white);
   border-radius: 50%;
-  margin: 2.5px;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   transition: 0.2s;
 }
 
 input:checked + .header__theme-button {
-  background-color: var(--color-thistle);
+  background-color: var(--color-purple);
 }
 
 input:checked + .header__theme-button::before {
-  transform: translateX(20px);
+  transform: translateX(13px);
 }
 
 .header__theme-checkbox {
   display: none;
 }
+
+/* Responsive styles */
+@media screen and (min-width: 768px) {
+  .header {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    margin-bottom: 49px;
+  }
+
+  .header__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  .header__logo-image-container {
+    padding: 0.8125rem;
+  }
+
+  .header__logo-image {
+    width: 29.99px;
+    height: 35.01px;
+  }
+
+  .header__theme-button {
+    width: 48px;
+    height: 28px;
+  }
+
+  .header__theme-button::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  input:checked + .header__theme-button::before {
+    transform: translateX(17px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    max-width: 1157px;
+    padding: 2.5rem;
+    margin-bottom: 85px;
+  }
+
+  .header__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
+
+  .header__logo-image-container {
+    padding: 0.8125rem;
+  }
+
+  .header__logo-image {
+    width: 29.99px;
+    height: 35.01px;
+  }
+
+  .header__theme-button {
+    width: 48px;
+    height: 28px;
+  }
+
+  .header__theme-button::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  input:checked + .header__theme-button::before {
+    transform: translateX(20px);
+  }
+}
+

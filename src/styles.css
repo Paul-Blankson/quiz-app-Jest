@@ -10,11 +10,24 @@
   --color-green: #26D782;
   --color-thistle: #a445ed;
   --color-red: #EE5454;
+
+   /* specific light theme variables */
+   --color-background: var(--color-pure-white);
+   --color-title: var(--color-dark-navy);
+   --color-icon-container: #f1f3f8;
+   --color-span-text: var(--color-grey-navy);
+}
+
+:root.dark-theme {
+  --color-background: var(--color-navy-);
+  --color-title: var(--color-pure-white);
+  --color-icon-container: var(--color-dark-navy);
+  --color-span-text: var(var(--color-light-bluish));
 }
 
 @font-face {
-  font-family: rubik;
-  src: url("../public/Rubik/Rubik-VariableFont_wght.ttf")
+  font-family: Rubik;
+  src: url("../public/fonts/Rubik-VariableFont_wght.ttf")
     format("truetype");
   font-style: normal;
   font-weight: 100 900;
@@ -24,4 +37,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: Rubik;
+  color: var(--color-dark-navy);
+  background: var(--color-light-grey) url('/images/light-theme-bg.svg') center/cover no-repeat;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:root.dark-theme body {
+  background: var(--color-dark-navy) url('/images/dark-theme-bg.svg') center/cover no-repeat;
+  color: var(--color-pure-white);
 }

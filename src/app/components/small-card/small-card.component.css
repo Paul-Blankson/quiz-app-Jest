@@ -1,0 +1,117 @@
+.small__card {
+  width: 327px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-background);
+  color: var(--color-card-title);
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.small__card-icon-container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-icon-container);
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.small__card--icon {
+  width: 23.21px;
+  height: 17.86px;
+}
+
+.small__card-title {
+  font-family: Rubik;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: 500;
+  color: var(--color-title);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+   .small__card {
+    width: 640px;
+    height: 80px;
+    gap: 32px;
+    margin-bottom: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .small__card-icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 0.75rem;
+  }
+
+  .small__card--icon {
+    width: 32.5px;
+    height: 25px;
+  }
+
+  .small__card-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+   .small__card {
+    width: 564px;
+    height: 96px;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .small__card-icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 0.5rem;
+  }
+
+  .small__card--icon {
+    width: 32.5px;
+    height: 25px;
+  }
+
+  .small__card-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .small__card {
+   width: 564px;
+   height: 96px;
+   gap: 2rem;
+   margin-bottom: 1.5rem;
+   border-radius: 1.5rem;
+ }
+
+ .small__card-icon-container {
+   width: 56px;
+   height: 56px;
+   border-radius: 0.5rem;
+ }
+
+ .small__card--icon {
+   width: 32.5px;
+   height: 25px;
+ }
+
+ .small__card-title {
+   font-size: 1.75rem;
+   line-height: 1.75rem;
+ }
+}
