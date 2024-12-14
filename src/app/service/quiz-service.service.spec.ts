@@ -34,5 +34,13 @@ describe('QuizServiceService', () => {
     expect(service.getSelectedSubjectTitle()).toBe(title);
   });
 
+  it('should set and get isFirstPage', () => {
+    const isFirstPage = false;
+    service.setIsFirstPage(isFirstPage);
+    service.getIsFirstPage().subscribe((result) => {
+      expect(result).toBe(isFirstPage);
+    });
+  });
+
   
 });
