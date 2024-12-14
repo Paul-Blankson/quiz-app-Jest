@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { QuizServiceService } from '../../service/quiz-service.service';
-import { QuizData } from '../../types';
 @Component({
   selector: 'app-small-card',
   imports: [],

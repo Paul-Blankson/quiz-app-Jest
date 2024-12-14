@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuizServiceService {
-  quizUrl = '/data/data.json';
+  public quizUrl = '/data/data.json';
 
   private isFirstPageSubject = new BehaviorSubject<boolean>(true);
   private selectedSubjectTitle: string = '';
@@ -30,6 +30,11 @@ export class QuizServiceService {
   }
 
   getQuizData(): Observable<any> {
-    return this.http.get(this.quizUrl);
+    return this.http.get(this.quizUrl).pipe(
+      catchError((error) => {
+        console.error('Error fetching quiz data:', error);
+        throw error;
+      })
+    );
   }
 }
