@@ -27,4 +27,12 @@ describe('QuizServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should set and get selected subject title', () => {
+    const title = 'HTML';
+    service.setSelectedSubjectTitle(title);
+    expect(service.getSelectedSubjectTitle()).toBe(title);
+  });
+
+  
 });
