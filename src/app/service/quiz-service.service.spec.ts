@@ -36,29 +36,35 @@ describe('QuizServiceService', () => {
     expect(service.getSelectedSubjectTitle()).toBe(title);
   });
 
-  it('should set and get isFirstPage', () => {
+  it('should set and get isFirstPage', (done) => {
     const isFirstPage = false;
     service.setIsFirstPage(isFirstPage);
-    service.getIsFirstPage().subscribe((result) => {
-      expect(result).toBe(isFirstPage);
-    });
+    service.getIsFirstPage().subscribe({
+      next: (result) => {
+        expect(result).toBe(isFirstPage);
+        done();
+      }
+    })
   });
 
-  it('should fetch quiz data correctly', () => {
+  it('should fetch quiz data correctly', (done) => {
     const mockQuizData: QuizData[] = quizData.quizzes;
 
-    service.getQuizData().subscribe(data => {
-      expect(data).toBeTruthy();
-      expect(data.length).toBeGreaterThan(0);
+    service.getQuizData().subscribe({
+      next: (data) => {
+        expect(data).toBeTruthy();
+        expect(data.length).toBeGreaterThan(0);
 
-      expect(data[0].title).toBeDefined();
-      expect(data[0].icon).toBeDefined();
-      expect(data[0].questions).toBeDefined();
+        expect(data[0].title).toBeDefined();
+        expect(data[0].icon).toBeDefined();
+        expect(data[0].questions).toBeDefined();
 
-      const firstQuestion = data[0].questions[0];
-      expect(firstQuestion.question).toBe("What does HTML stand for?");
-      expect(firstQuestion.options.length).toBe(4);
-      expect(firstQuestion.answer).toBe("Hyper Text Markup Language");
+        const firstQuestion = data[0].questions[0];
+        expect(firstQuestion.question).toBe("What does HTML stand for?");
+        expect(firstQuestion.options.length).toBe(4);
+        expect(firstQuestion.answer).toBe("Hyper Text Markup Language");
+        done();
+      }
     });
 
     const req = httpMock.expectOne('/data/data.json');
