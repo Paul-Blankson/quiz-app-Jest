@@ -34,5 +34,17 @@ describe('HeaderComponent', () => {
     jest.resetAllMocks();
   });
 
-  
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should initialize `isFirstPage` from QuizService', () => {
+    const isFirstPageSubject = new BehaviorSubject(false);
+    mockQuizService.getIsFirstPage.mockReturnValue(isFirstPageSubject);
+
+    fixture.detectChanges();
+
+    expect(component.isFirstPage).toBe(false);
+  });
+
 });
