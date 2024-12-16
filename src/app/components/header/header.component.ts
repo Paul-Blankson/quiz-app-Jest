@@ -9,15 +9,21 @@ import { Subscription } from 'rxjs';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  isFirstPage: boolean = true;
-  isDarkTheme: boolean = false;
+  public isFirstPage: boolean = true;
+  public isDarkTheme: boolean = false;
   private subscriptions: Subscription = new Subscription();
 
   constructor(public quizService: QuizServiceService) {}
 
   ngOnInit(): void {
-    const isFirstPageSub = this.quizService.getIsFirstPage().subscribe((isFirstPage) => {
-      this.isFirstPage = isFirstPage;
+    const isFirstPageSub = this.quizService.getIsFirstPage().subscribe({
+      next: (isFirstPage) => {
+        this.isFirstPage = isFirstPage;
+      },
+      error: (err) => {
+        console.error('Error fetching first page status:', err);
+      },
+
     });
     this.subscriptions.add(isFirstPageSub);
 

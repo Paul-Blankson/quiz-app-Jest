@@ -22,12 +22,12 @@ export class QuestionsSectionComponent {
   private subscriptions: Subscription = new Subscription();
 
   ngOnInit(): void {
-    this.quizService.getQuizData().subscribe((data: { quizzes: QuizData[] }) => {
+    const subscription = this.quizService.getQuizData().subscribe((data: { quizzes: QuizData[] }) => {
       this.quizes = data.quizzes;
       this.selectedTitle = this.quizService.getSelectedSubjectTitle();
-      // Filter questions and set the current question
       this.filterQuestionsByTitle();
     });
+    this.subscriptions.add(subscription);
   }
 
   ngOnDestroy(): void {
@@ -60,9 +60,9 @@ export class QuestionsSectionComponent {
   nextQuestion(): void {
     if (this.currentIndex < this.questions.length - 1) {
       this.currentIndex++;
+      this.getCurrentQueOptions();
     }
     this.selectedTitle = this.quizService.getSelectedSubjectTitle();
-    this.getCurrentQueOptions();
   }
 
 }
