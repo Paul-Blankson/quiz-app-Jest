@@ -21,4 +21,10 @@ describe('SmallCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  describe('getIconBackgroundColor', () => {
+    it('should return correct background color for HTML', () => {
+      expect(component.getIconBackgroundColor('HTML')).toBe('#FFF1E9');
+    });
+  });
+
 });
