@@ -60,4 +60,14 @@ describe('SmallCardComponent', () => {
       expect(iconContainer.styles['background-color']).toBe('rgb(224, 253, 239)');
     });
   });
+
+  describe('Event Emitter', () => {
+    it('should emit when clicked', () => {
+      const spy = jest.spyOn(component.clicked, 'emit');
+
+      component.clicked.emit();
+
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 });
