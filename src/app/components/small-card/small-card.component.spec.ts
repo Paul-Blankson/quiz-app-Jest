@@ -25,6 +25,21 @@ describe('SmallCardComponent', () => {
     it('should return correct background color for HTML', () => {
       expect(component.getIconBackgroundColor('HTML')).toBe('#FFF1E9');
     });
-  });
 
+    it('should return correct background color for CSS', () => {
+      expect(component.getIconBackgroundColor('CSS')).toBe('#E0FDEF');
+    });
+
+    it('should return correct background color for JavaScript', () => {
+      expect(component.getIconBackgroundColor('JavaScript')).toBe('#EBF0FF');
+    });
+
+    it('should return correct background color for Accessibility', () => {
+      expect(component.getIconBackgroundColor('Accessibility')).toBe('#F6E7FF');
+    });
+
+    it('should return transparent for unknown subjects', () => {
+      expect(component.getIconBackgroundColor('Unknown')).toBe('transparent');
+    });
+  });
 });
