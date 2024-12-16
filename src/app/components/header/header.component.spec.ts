@@ -87,4 +87,18 @@ describe('HeaderComponent', () => {
     expect(component.getHeaderIcon()).toBe('images/icon-js.svg');
     expect(component.getHeaderIconBackground()).toBe('#EBF0FF');
   });
+
+  it('should hide logo container when `isFirstPage` is true', () => {
+    component.isFirstPage = true;
+    fixture.detectChanges();
+
+    const logoContainer = fixture.debugElement.query(By.css('.header__logo-container'));
+    expect(logoContainer.styles['display']).toBe('none');
+
+    component.isFirstPage = false;
+    fixture.detectChanges();
+
+    expect(logoContainer.styles['display']).toBe('flex');
+  });
+
 });
