@@ -42,4 +42,15 @@ describe('SmallCardComponent', () => {
       expect(component.getIconBackgroundColor('Unknown')).toBe('transparent');
     });
   });
+
+  describe('Component Rendering', () => {
+    it('should display the card title correctly', () => {
+      component.cardTitle = 'HTML';
+      fixture.detectChanges();
+
+      const titleElement = fixture.debugElement.query(By.css('.small__card-title'));
+      expect(titleElement.nativeElement.textContent).toBe('HTML');
+    });
+
+  });
 });
