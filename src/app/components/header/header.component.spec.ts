@@ -78,4 +78,13 @@ describe('HeaderComponent', () => {
     expect(document.documentElement.classList.contains('dark-theme')).toBe(false);
   });
 
+  it('should get correct header icon and background based on the selected subject', () => {
+    mockQuizService.getSelectedSubjectTitle.mockReturnValue('CSS');
+    expect(component.getHeaderIcon()).toBe('images/icon-css.svg');
+    expect(component.getHeaderIconBackground()).toBe('#E0FDEF');
+
+    mockQuizService.getSelectedSubjectTitle.mockReturnValue('JavaScript');
+    expect(component.getHeaderIcon()).toBe('images/icon-js.svg');
+    expect(component.getHeaderIconBackground()).toBe('#EBF0FF');
+  });
 });
