@@ -101,4 +101,13 @@ describe('HeaderComponent', () => {
     expect(logoContainer.styles['display']).toBe('flex');
   });
 
+  it('should unsubscribe from all subscriptions on destroy', () => {
+    const unsubscribeSpy = jest.spyOn(component['subscriptions'], 'unsubscribe');
+
+    component.ngOnDestroy();
+
+    expect(unsubscribeSpy).toHaveBeenCalled();
+  });
+
+  
 });
