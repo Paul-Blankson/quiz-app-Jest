@@ -29,5 +29,10 @@ describe('HeaderComponent', () => {
     mockQuizService.getSelectedSubjectTitle.mockReturnValue('HTML');
   });
 
+  afterEach(() => {
+    localStorage.clear();
+    jest.resetAllMocks();
+  });
+
   
 });
