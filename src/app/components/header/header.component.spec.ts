@@ -109,5 +109,16 @@ describe('HeaderComponent', () => {
     expect(unsubscribeSpy).toHaveBeenCalled();
   });
 
-  
+  it('should toggle the checkbox correctly for theme switching', () => {
+    component.isDarkTheme = true;
+    fixture.detectChanges();
+
+    const themeCheckbox = fixture.debugElement.query(By.css('#themeToggle')).nativeElement;
+    expect(themeCheckbox.checked).toBe(true);
+
+    component.isDarkTheme = false;
+    fixture.detectChanges();
+
+    expect(themeCheckbox.checked).toBe(false);
+  });
 });
