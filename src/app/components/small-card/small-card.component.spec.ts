@@ -52,5 +52,12 @@ describe('SmallCardComponent', () => {
       expect(titleElement.nativeElement.textContent).toBe('HTML');
     });
 
+    it('should set background color of icon container dynamically', () => {
+      component.cardTitle = 'CSS';
+      fixture.detectChanges();
+
+      const iconContainer = fixture.debugElement.query(By.css('.small__card-icon-container'));
+      expect(iconContainer.styles['background-color']).toBe('rgb(224, 253, 239)');
+    });
   });
 });
