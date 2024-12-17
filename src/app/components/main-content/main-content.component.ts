@@ -15,7 +15,7 @@ export class MainContentComponent {
  public isQuestionSection = false;
 
   constructor(
-    private quizService: QuizServiceService
+    private readonly quizService: QuizServiceService
   ) {}
 
   ngOnInit(): void {
