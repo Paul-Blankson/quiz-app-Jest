@@ -19,7 +19,9 @@ export class QuestionsSectionComponent {
   quizService = inject(QuizServiceService);
   answerLabel=['A', 'B', 'C', 'D']
   selectedTitle: string = '';
-  private subscriptions: Subscription = new Subscription();
+  selectedAnswer: string | null = null;
+  feedback: { isCorrect: boolean; selectedOption: string } | null = null;
+  private readonly subscriptions: Subscription = new Subscription();
 
   ngOnInit(): void {
     const subscription = this.quizService.getQuizData().subscribe((data: { quizzes: QuizData[] }) => {
@@ -57,12 +59,49 @@ export class QuestionsSectionComponent {
     }
   }
 
+  selectAnswer(option: string): void {
+    this.selectedAnswer = option;
+  }
+
+  getCurrentQueAnswer() {
+    return this.questions[this.currentIndex].answer;
+  }
+
+  getIconType(option: string): 'correct' | 'incorrect' | null {
+
+    if (!this.feedback) return null;
+
+    const correctAnswer = this.getCurrentQueAnswer();
+    if (option === correctAnswer) {
+      return 'correct';
+    }
+
+    if (option === this.selectedAnswer && this.selectedAnswer !== correctAnswer) {
+      return 'incorrect';
+    }
+    return null;
+  }
+
+  submitAnswer(): void {
+    if (this.selectedAnswer !== null) {
+      const correctAnswer = this.getCurrentQueAnswer();
+      this.feedback = {
+        isCorrect: this.selectedAnswer === correctAnswer,
+        selectedOption: this.selectedAnswer,
+      };
+    } else {
+      console.warn('No answer selected');
+    }
+  }
+
   nextQuestion(): void {
     if (this.currentIndex < this.questions.length - 1) {
       this.currentIndex++;
       this.getCurrentQueOptions();
+      
+      this.selectedAnswer = null;
+      this.feedback = null;
     }
-    this.selectedTitle = this.quizService.getSelectedSubjectTitle();
   }
 
 }

@@ -13,6 +13,18 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.small__card--selected {
+  border: 3px solid var(--color-thistle);
+}
+
+.small__card--correct {
+  border: 3px solid var(--color-green);
+}
+
+.small__card--incorrect {
+  border: 3px solid var(--color-red);
+}
+
 .small__card-icon-container {
   width: 40px;
   height: 40px;
@@ -22,6 +34,14 @@
   background-color: var(--color-icon-container);
   border-radius: 6px;
   transition: background-color 0.3s ease;
+}
+
+.small__card-icon-container.selected-icon-container {
+  background-color: var(--color-thistle) !important;
+}
+
+.small__card-icon-container.selected-icon-container .answer__label {
+  color: var(--color-title) !important;
 }
 
 .small__card--icon {

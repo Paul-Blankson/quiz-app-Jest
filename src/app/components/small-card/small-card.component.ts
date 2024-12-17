@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-small-card',
   imports: [],
@@ -8,6 +8,9 @@ import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 export class SmallCardComponent {
 
   @Input() cardTitle: string = '';
+  @Input() showIcon: boolean = false;
+  @Input() iconType: 'correct' | 'incorrect' | null = null;
+  @Input() isSelected: boolean = false;
   @Output() clicked = new EventEmitter();
 
   getIconBackgroundColor(title: string): string {
@@ -23,5 +26,9 @@ export class SmallCardComponent {
       default:
         return 'transparent';
     }
+  }
+
+  onCardClick(): void {
+    this.clicked.emit(this.cardTitle);
   }
 }

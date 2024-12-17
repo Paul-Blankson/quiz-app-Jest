@@ -40,7 +40,6 @@
 }
 
 body {
-  font-family: Rubik;
   color: var(--color-dark-navy);
   background: var(--color-light-grey) url('/images/light-theme-bg.svg') center/cover no-repeat;
   transition: background 0.3s ease, color 0.3s ease;
