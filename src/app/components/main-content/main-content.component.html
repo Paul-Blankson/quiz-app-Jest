@@ -19,7 +19,12 @@
 
     <div class="subjects__container">
       @for(card of cards; track $index){
-      <app-small-card [cardTitle]="card.title" (click)="onCardClick(card.title)">
+        <app-small-card
+        [cardTitle]="card.title"
+        (click)="onCardClick(card.title)"
+        (keydown.enter)="onCardClick(card.title)"
+        tabindex="0"
+      >
         <img
           src="{{ card.icon }}"
           alt="subject icon"
@@ -31,6 +36,4 @@
 
   </section>
 }
-
-<!-- <app-results-section></app-results-section> -->
 
