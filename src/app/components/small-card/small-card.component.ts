@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
-import { QuizServiceService } from '../../service/quiz-service.service';
 @Component({
   selector: 'app-small-card',
   imports: [],
@@ -7,12 +6,9 @@ import { QuizServiceService } from '../../service/quiz-service.service';
   styleUrl: './small-card.component.css',
 })
 export class SmallCardComponent {
-  @Input() cardIcon: string = '';
+
   @Input() cardTitle: string = '';
-
   @Output() clicked = new EventEmitter();
-
-  quizService = inject(QuizServiceService);
 
   getIconBackgroundColor(title: string): string {
     switch (title) {
