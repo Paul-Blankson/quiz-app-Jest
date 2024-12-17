@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SmallCardComponent } from './small-card.component';
 import { By } from '@angular/platform-browser';
-import { Component } from '@angular/core';
-
 describe('SmallCardComponent', () => {
   let component: SmallCardComponent;
   let fixture: ComponentFixture<SmallCardComponent>;
@@ -71,38 +69,70 @@ describe('SmallCardComponent', () => {
     });
   });
 
-  describe('Content Projection', () => {
-    it('should project content inside the icon container', () => {
-      fixture = TestBed.createComponent(SmallCardComponent);
-      fixture.componentInstance.cardTitle = 'Test';
+  describe('Additional Input Properties', () => {
+    it('should apply selected class when isSelected is true', () => {
+      component.isSelected = true;
+      fixture.detectChanges();
 
-      // Create a test host component
-      @Component({
-        template: `
-          <app-small-card cardTitle="Test">
-            <span class="test-content">Projected Content</span>
-          </app-small-card>
-        `
-      })
-      class TestHostComponent {}
+      const cardElement = fixture.debugElement.query(By.css('.small__card'));
+      expect(cardElement.classes['small__card--selected']).toBeTruthy();
+    });
 
-      TestBed.overrideComponent(SmallCardComponent, {
-        add: {
-          imports: []
-        }
-      });
+    it('should show correct icon when showIcon is true and iconType is correct', () => {
+      component.showIcon = true;
+      component.iconType = 'correct';
+      fixture.detectChanges();
 
-      TestBed.configureTestingModule({
-        imports: [SmallCardComponent],
-        declarations: [TestHostComponent]
-      }).compileComponents();
+      const iconElement = fixture.debugElement.query(By.css('.answer__icon'));
+      expect(iconElement).toBeTruthy();
+      expect(iconElement.nativeElement.src).toContain('images/icon-correct.svg');
+    });
 
-      const hostFixture = TestBed.createComponent(TestHostComponent);
-      hostFixture.detectChanges();
+    it('should show incorrect icon when showIcon is true and iconType is incorrect', () => {
+      component.showIcon = true;
+      component.iconType = 'incorrect';
+      fixture.detectChanges();
 
-      const projectedContent = hostFixture.debugElement.query(By.css('.test-content'));
-      expect(projectedContent).toBeTruthy();
-      expect(projectedContent.nativeElement.textContent).toBe('Projected Content');
+      const iconElement = fixture.debugElement.query(By.css('.answer__icon'));
+      expect(iconElement).toBeTruthy();
+      expect(iconElement.nativeElement.src).toContain('images/icon-incorrect.svg');
+    });
+
+    it('should not show icon when showIcon is false', () => {
+      component.showIcon = false;
+      component.iconType = 'correct';
+      fixture.detectChanges();
+
+      const iconElement = fixture.debugElement.query(By.css('.answer__icon'));
+      expect(iconElement).toBeNull();
+    });
+
+    it('should apply selected icon container class when isSelected is true', () => {
+      component.isSelected = true;
+      fixture.detectChanges();
+
+      const iconContainer = fixture.debugElement.query(By.css('.small__card-icon-container'));
+      expect(iconContainer.classes['selected-icon-container']).toBeTruthy();
+    });
+  });
+
+  describe('onCardClick Method', () => {
+    it('should emit clicked event with card title when clicked', () => {
+      const emitSpy = jest.spyOn(component.clicked, 'emit');
+      component.cardTitle = 'Test Title';
+
+      component.onCardClick();
+
+      expect(emitSpy).toHaveBeenCalledWith('Test Title');
+    });
+
+    it('should trigger onCardClick when card is clicked', () => {
+      const onCardClickSpy = jest.spyOn(component, 'onCardClick');
+      const cardElement = fixture.debugElement.query(By.css('.small__card'));
+
+      cardElement.triggerEventHandler('click', null);
+
+      expect(onCardClickSpy).toHaveBeenCalled();
     });
   });
 });
