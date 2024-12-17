@@ -70,4 +70,39 @@ describe('SmallCardComponent', () => {
       expect(spy).toHaveBeenCalled();
     });
   });
+
+  describe('Content Projection', () => {
+    it('should project content inside the icon container', () => {
+      fixture = TestBed.createComponent(SmallCardComponent);
+      fixture.componentInstance.cardTitle = 'Test';
+
+      // Create a test host component
+      @Component({
+        template: `
+          <app-small-card cardTitle="Test">
+            <span class="test-content">Projected Content</span>
+          </app-small-card>
+        `
+      })
+      class TestHostComponent {}
+
+      TestBed.overrideComponent(SmallCardComponent, {
+        add: {
+          imports: []
+        }
+      });
+
+      TestBed.configureTestingModule({
+        imports: [SmallCardComponent],
+        declarations: [TestHostComponent]
+      }).compileComponents();
+
+      const hostFixture = TestBed.createComponent(TestHostComponent);
+      hostFixture.detectChanges();
+
+      const projectedContent = hostFixture.debugElement.query(By.css('.test-content'));
+      expect(projectedContent).toBeTruthy();
+      expect(projectedContent.nativeElement.textContent).toBe('Projected Content');
+    });
+  });
 });
