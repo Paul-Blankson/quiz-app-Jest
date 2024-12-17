@@ -1,47 +1,24 @@
-<!-- <div 
-  class="small__card" 
-  [class.small__card--selected]="isSelected"
-  (click)="onCardClick()"
->
-  <div 
-    class="small__card-icon-container" 
-    [style.background-color]="getIconBackgroundColor(cardTitle)"
-    [class.selected-icon-container]="isSelected"
-  >
-    <ng-content></ng-content>
-  </div>
-  <h2 class="small__card-title">{{ cardTitle }}</h2>
-  
-  @if (showIcon && iconType) {
-    <img 
-      [src]="iconType === 'correct' ? 'images/icon-correct.svg' : 'images/icon-incorrect.svg'"
-      alt="answer icon" 
-      class="answer__icon" 
-    />
-  }
-</div> -->
-
-<div 
-  class="small__card" 
+<div
+  class="small__card"
   [class.small__card--selected]="isSelected"
   [class.small__card--correct]="iconType === 'correct'"
   [class.small__card--incorrect]="iconType === 'incorrect'"
   (click)="onCardClick()"
 >
-  <div 
-    class="small__card-icon-container" 
+  <div
+    class="small__card-icon-container"
     [style.background-color]="getIconBackgroundColor(cardTitle)"
     [class.selected-icon-container]="isSelected"
   >
     <ng-content></ng-content>
   </div>
   <h2 class="small__card-title">{{ cardTitle }}</h2>
-  
+
   @if (showIcon && iconType) {
-    <img 
+    <img
       [src]="iconType === 'correct' ? 'images/icon-correct.svg' : 'images/icon-incorrect.svg'"
-      alt="answer icon" 
-      class="answer__icon" 
+      alt="answer icon"
+      class="answer__icon"
     />
   }
 </div>

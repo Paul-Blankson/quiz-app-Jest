@@ -1,49 +1,4 @@
- <!-- <section class="questions-section">
-    <div class="questions-section__question-container">
-
-      <div class="questions-section__question-text-container">
-        <span class="questions-section__question-count">Question {{ currentIndex + 1 }} of {{ questions.length }}</span>
-        @if(questions[currentIndex]) {
-        <h2 class="questions-section__question-text">
-          {{ questions[currentIndex].question }}
-        </h2>
-      }
-      </div>
-
-      <div class="questions-section__progress-bar-container">
-        <div
-          class="questions-section__progress-bar"
-          [style.width.%]="(currentIndex + 1) / questions.length * 100"
-        ></div>
-      </div>
-
-    </div>
-
-    <div class="question-section__answer-container">
-      <div class="answer__card-container">
-        @for(option of currentQueOptions; track $index){
-          <app-small-card 
-            [cardTitle]="option"
-            [showIcon]="feedback !== null"
-            [isSelected]="selectedAnswer === option"
-            [iconType]="getIconType(option)"
-            (clicked)="selectAnswer(option)"
-          >
-            <div 
-              class="answer__lable-container"
-              [class.selected-label]="selectedAnswer === option"
-            >
-              <p class="answer__label">{{ answerLabel[$index] }}</p>
-            </div>
-          </app-small-card>
-        }
-      </div>
-      <button class="question-section__answer-container-submit-btn" (click)="submitAnswer()">Submit Answer</button>
-    </div>
-
-  </section> -->
-
-  <section class="questions-section">
+ <section class="questions-section">
     <div class="questions-section__question-container">
       <div class="questions-section__question-text-container">
         <span class="questions-section__question-count">Question {{ currentIndex + 1 }} of {{ questions.length }}</span>
@@ -65,14 +20,14 @@
     <div class="question-section__answer-container">
       <div class="answer__card-container">
         @for(option of currentQueOptions; track $index){
-          <app-small-card 
+          <app-small-card
             [cardTitle]="option"
             [showIcon]="feedback !== null"
             [isSelected]="selectedAnswer === option"
             [iconType]="getIconType(option)"
             (clicked)="selectAnswer(option)"
           >
-            <div 
+            <div
               class="answer__lable-container"
               [class.selected-label]="selectedAnswer === option"
               [class.correct-label]="feedback?.isCorrect && option === getCurrentQueAnswer()"
@@ -83,8 +38,8 @@
           </app-small-card>
         }
       </div>
-      <button 
-        class="question-section__answer-container-submit-btn" 
+      <button
+        class="question-section__answer-container-submit-btn"
         (click)="feedback ? nextQuestion() : submitAnswer()"
         [disabled]="selectedAnswer === null && !feedback"
       >
