@@ -8,10 +8,10 @@ import { Observable, BehaviorSubject, catchError } from 'rxjs';
 export class QuizServiceService {
   public quizUrl = '/data/data.json';
 
-  private isFirstPageSubject = new BehaviorSubject<boolean>(true);
+  private readonly isFirstPageSubject = new BehaviorSubject<boolean>(true);
   private selectedSubjectTitle: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   setSelectedSubjectTitle(title: string): void {
     this.selectedSubjectTitle = title;
