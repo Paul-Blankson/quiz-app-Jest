@@ -57,6 +57,12 @@
   color: var(--color-title);
 }
 
+.answer__icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 127px;
+}
+
 /* Responsive styles */
 @media (min-width: 768px) {
    .small__card {
@@ -81,6 +87,12 @@
   .small__card-title {
     font-size: 1.75rem;
     line-height: 1.75rem;
+  }
+
+  .answer__icon {
+    width: 24px;
+    height: 24px;
+    /* margin-left: 300px; */
   }
 }
 
