@@ -9,9 +9,9 @@ import { Subscription } from 'rxjs';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  public isFirstPage: boolean = true;
-  public isDarkTheme: boolean = false;
-  private subscriptions: Subscription = new Subscription();
+   isFirstPage: boolean = true;
+   isDarkTheme: boolean = false;
+  private readonly subscriptions: Subscription = new Subscription();
 
   constructor(public quizService: QuizServiceService) {}
 

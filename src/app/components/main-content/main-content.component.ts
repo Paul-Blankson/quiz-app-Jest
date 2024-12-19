@@ -11,8 +11,8 @@ import { QuizData } from '../../types';
   styleUrl: './main-content.component.css',
 })
 export class MainContentComponent {
- public cards: QuizData[] = [];
- public isQuestionSection = false;
+  cards: QuizData[] = [];
+  isQuestionSection = false;
 
   constructor(
     private readonly quizService: QuizServiceService
